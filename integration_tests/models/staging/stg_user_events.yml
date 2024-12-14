@@ -1,0 +1,14 @@
+models:
+  - name: stg_user_events
+    config:
+      materialized: table
+
+    columns:
+      - name: region_id
+      - name: user_id
+      - name: client_version
+      - name: event_type
+      - name: event_data
+      - name: event_timestamp
+      - name: received_at
+      - name: dbt_run_started_at

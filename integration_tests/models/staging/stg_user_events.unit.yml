@@ -1,0 +1,45 @@
+unit_tests:
+  - name: empty
+    model: stg_user_events
+    config:
+      jira:
+        test_key: IGDP-13
+        test_plan: IGDP-28
+
+    given:
+      - input: source("landing_tables", "user_events")
+        rows: []
+    expect:
+      rows: []
+
+  - name: one_row
+    model: stg_user_events
+    config:
+      jira:
+        test_key: IGDP-14
+
+    overrides:
+      macros:
+        dbt_run_started_at: &run_started_at "2024-01-01 00:00:00"
+    given:
+      - input: source("landing_tables", "user_events")
+        rows:
+          - region_id: "us-east-1"
+            user_id: "user-1f"
+            client_version: "1.0.1"
+            event_type: "login"
+            event_data: '{ "success": true }'
+            event_timestamp: "2020-01-01 00:00:00"
+            event_id: "abc123de"
+            received_at: "2020-01-01 00:00:00"
+    expect:
+      rows:
+        - region_id: "us-east-1"
+          user_id: "user-1f"
+          client_version: "1.0.1"
+          event_type: "login"
+          event_data: '{ "success": true }'
+          event_timestamp: "2020-01-01 00:00:00"
+          event_id: "abc123de"
+          received_at: "2020-01-01 00:00:00"
+          dbt_run_started_at: *run_started_at

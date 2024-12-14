@@ -1,0 +1,9 @@
+.user.yml
+integration_tests/target/
+integration_tests/logs/
+integration_tests/dbt_packages/
+.vscode/
+.DS_Store
+__pycache__
+worksheet.sql
+.pytest_cache/

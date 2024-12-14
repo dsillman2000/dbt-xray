@@ -1,0 +1,9 @@
+user_events:
+  region_id: TEXT
+  user_id: TEXT
+  client_version: TEXT
+  event_type: TEXT
+  event_data: JSONB
+  event_timestamp: TIMESTAMP
+  event_id: TEXT
+  received_at: TIMESTAMP

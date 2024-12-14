@@ -1,0 +1,12 @@
+name: dbt_xray_integration_tests
+version: 1.0.0
+profile: integration_tests
+
+model-paths: ["models"]
+
+clean-targets: ["target", "logs", "dbt_packages"]
+
+models:
+  dbt_xray_project:
+    staging:
+      +schema: staging

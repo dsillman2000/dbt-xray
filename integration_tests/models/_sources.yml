@@ -1,0 +1,15 @@
+sources:
+  - name: landing_tables
+    database: "{{ env_var('DBT_DB') }}"
+    schema: "{{ env_var('LANDING_SCHEMA') }}"
+    tables:
+      - name: user_events
+        columns:
+          - name: region_id
+          - name: user_id
+          - name: client_version
+          - name: event_type
+          - name: event_data
+          - name: event_timestamp
+          - name: event_id
+          - name: received_at

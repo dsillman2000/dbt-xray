@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "dbt-xray"
+version = "0.1.0"
+description = "A dbt companion CLI for reporting unit test executions to Jira X-Ray"
+authors = ["David Sillman <dsillman2000@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+dbt-core = "^1.8.9"
+dbt-postgres = "^1.8.2"
+click = "^8.1.7"
+pydantic = "^2.10.3"
+
+
+[tool.poetry.scripts]
+dbt-xray = "dbt_xray.main:cli"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.4"
+pytest-dotenv = "^0.5.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
