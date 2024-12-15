@@ -23,4 +23,4 @@ ARG DBT_USER
 ARG DBT_PASSWORD
 ARG DBT_DB
 
-CMD ["sh", "/project/dockerfiles/dbt-xray/integration-tests.sh"]
+CMD tail -f /dev/null

@@ -1,0 +1,19 @@
+name: Docker Compose Action
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Start postgres and dbt-xray services
+        run: docker compose up -d
+      
+      - name: Run the dbt-xray pytest service
+        run: bash docker-integration-tests.sh
+
+      - name: Stop dbt-xray and postgres services
+        run: docker compose down

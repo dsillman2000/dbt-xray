@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import pytest
+from dbt.cli.main import dbtRunner
 
 INTEGRATION_TESTS_DIR = Path(__file__).parent.parent / "integration_tests"
 
