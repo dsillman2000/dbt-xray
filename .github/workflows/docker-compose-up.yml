@@ -14,6 +14,6 @@ jobs:
         with:
           compose-file: "./docker-compose.yml"
       
-      - name: Execute tests in the running services
+      - name: Run the dbt-xray pytest service
         run: |
-            bash docker-integration-tests.sh
+            docker-compose run dbt-xray bash /project/dockerfiles/dbt-xray/integration-tests.sh
