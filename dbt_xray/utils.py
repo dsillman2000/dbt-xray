@@ -8,25 +8,14 @@ from dbt_xray.model import XrayRunResult
 
 
 def validate_jira_config(config: UnitTestConfig | TestConfig | Any) -> bool:
-    if not config.get("jira"):
-        return False
-    if not config.get("jira", {}).get("test_key"):
-        return False
-    return True
+    return bool(next((tag for tag in config.tags if tag.startswith("key:")), None))
 
 
-def get_test_key(config: Any) -> str:
-    return config.get("jira", {}).get("test_key", "")
+def get_test_key(config: UnitTestConfig | TestConfig | Any) -> str | None:
+    if key := next((tag for tag in config.tags if tag.startswith("key:")), None):
+        return key.split(":", maxsplit=1)[1]
 
 
-def get_test_plan(config: Any) -> str:
-    return config.get("jira", {}).get("test_plan", "")
-
-
-def dbt_run_result_to_xray_run_result(result: RunResult, test_key: str) -> XrayRunResult:
-    return XrayRunResult(
-        test_key=test_key,
-        status="pass" if result.status == TestStatus.Pass else "fail",
-        execution_timestamp=result.timing[0].started_at,  # type: ignore
-        execution_evidence=result.adapter_response,
-    )
+def get_test_plan(config: UnitTestConfig | TestConfig | Any) -> str | None:
+    if plan := next((tag for tag in config.tags if tag.startswith("plan:")), None):
+        return plan.split(":", maxsplit=1)[1]

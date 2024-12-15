@@ -2,9 +2,7 @@ unit_tests:
   - name: empty
     model: stg_user_events
     config:
-      jira:
-        test_key: IGDP-13
-        test_plan: IGDP-28
+      tags: ["key:IGDP-13", "plan:IGDP-28"]
 
     given:
       - input: source("landing_tables", "user_events")
@@ -15,8 +13,7 @@ unit_tests:
   - name: one_row
     model: stg_user_events
     config:
-      jira:
-        test_key: IGDP-14
+      tags: ["key:IGDP-14"]
 
     overrides:
       macros:

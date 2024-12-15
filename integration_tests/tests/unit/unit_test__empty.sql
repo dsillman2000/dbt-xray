@@ -1,10 +1,6 @@
 {{
     config(
-        tags=['unit-test'],
-        jira={
-            "test_key": "IGDP-13",
-            "test_plan": "IGDP-28",
-        }
+        tags=['unit-test', 'key:IGDP-15', 'plan:IGDP-28'],
     )
 }}
 {% call dbt_unit_testing.test("stg_user_events", "Shall handle an empty row correctly") %}

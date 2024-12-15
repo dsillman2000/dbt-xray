@@ -7,6 +7,6 @@ model-paths: ["models"]
 clean-targets: ["target", "logs", "dbt_packages"]
 
 models:
-  dbt_xray_project:
+  dbt_xray_integration_tests:
     staging:
       +schema: staging
