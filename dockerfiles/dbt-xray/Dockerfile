@@ -22,5 +22,3 @@ ARG POSTGRES_PORT
 ARG DBT_USER
 ARG DBT_PASSWORD
 ARG DBT_DB
-
-CMD ["sh", "/project/dockerfiles/dbt-xray/integration-tests.sh"]
