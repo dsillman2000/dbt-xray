@@ -1,6 +1,9 @@
 name: Docker Compose Action
 
-on: [push]
+on:
+  push:
+    paths-ignore:
+      - 'README.md'
 
 jobs:
   build:
