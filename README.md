@@ -35,6 +35,13 @@ dbt-xray ls --test-key JIRA-123
 dbt-xray ls -k JIRA-123
 ```
 
+Identify multiple tests by Jira keys:
+
+```bash
+dbt-xray ls --test-key JIRA-123,JIRA-234,JIRA-345
+dbt-xray ls -k JIRA-123,JIRA-234,JIRA-345
+```
+
 Identify all tests in a test plan by Jira key:
 
 ```bash
@@ -55,6 +62,13 @@ Run a specific test by Jira key:
 ```bash
 dbt-xray run --test-key JIRA-123
 dbt-xray run -k JIRA-123
+```
+
+Run multiple tests by Jira keys:
+
+```bash
+dbt-xray run --test-key JIRA-123,JIRA-234,JIRA-345
+dbt-xray run -k JIRA-123,JIRA-234,JIRA-345
 ```
 
 Run all tests in a test plan by Jira key:
