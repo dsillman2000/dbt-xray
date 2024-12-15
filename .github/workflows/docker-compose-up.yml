@@ -9,11 +9,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run docker-compose
+      - name: Start postgres and dbt-xray services
         run: docker compose up -d
       
       - name: Run the dbt-xray pytest service
-        run: docker compose exec dbt-xray bash /project/dockerfiles/dbt-xray/integration-tests.sh
+        run: bash docker-integration-tests.sh
 
-      - name: Stop docker-compose
+      - name: Stop dbt-xray and postgres services
         run: docker compose down

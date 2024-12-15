@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import pytest
+from dbt.cli.main import dbtRunner
 
 INTEGRATION_TESTS_DIR = Path(__file__).parent.parent / "integration_tests"
 
@@ -11,3 +12,9 @@ def dbt_project_dir(monkeypatch: pytest.MonkeyPatch):
         m.setenv("DBT_PROJECT_DIR", str(INTEGRATION_TESTS_DIR))
         m.chdir(INTEGRATION_TESTS_DIR)
         yield
+
+
+@pytest.fixture(autouse=True, scope="session")
+def dbt_run_empty(dbt_project_dir):
+    dbtRunner().invoke(["run", "--empty"])
+    yield

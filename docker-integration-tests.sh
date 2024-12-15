@@ -1,1 +1,1 @@
-docker-compose run dbt-xray bash /project/dockerfiles/dbt-xray/integration-tests.sh
+docker compose exec dbt-xray bash -c "cd /project && poetry run pytest -sv tests/test_integration.py"
