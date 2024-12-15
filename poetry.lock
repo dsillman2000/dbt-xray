@@ -69,13 +69,13 @@ dev = ["freezegun (>=1.0,<2.0)", "pytest (>=6.0)", "pytest-cov"]
 
 [[package]]
 name = "certifi"
-version = "2024.8.30"
+version = "2024.12.14"
 description = "Python package for providing Mozilla's CA Bundle."
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "certifi-2024.8.30-py3-none-any.whl", hash = "sha256:922820b53db7a7257ffbda3f597266d435245903d80737e34f8a45ff3e3230d8"},
-    {file = "certifi-2024.8.30.tar.gz", hash = "sha256:bec941d2aa8195e248a60b31ff9f0558284cf01a52591ceda73ea9afffd69fd9"},
+    {file = "certifi-2024.12.14-py3-none-any.whl", hash = "sha256:1275f7a45be9464efc1173084eaa30f866fe2e47d389406136d332ed4967ec56"},
+    {file = "certifi-2024.12.14.tar.gz", hash = "sha256:b650d30f370c2b724812bee08008be0c4163b163ddaec3f2546c1caf65f191db"},
 ]
 
 [[package]]
@@ -229,19 +229,19 @@ files = [
 
 [[package]]
 name = "dbt-adapters"
-version = "1.10.2"
+version = "1.10.4"
 description = "The set of adapter protocols and base functionality that supports integration with dbt-core"
 optional = false
 python-versions = ">=3.9.0"
 files = [
-    {file = "dbt_adapters-1.10.2-py3-none-any.whl", hash = "sha256:e08ccc54661c2fa2021ef2cbc3105a6d7552d5aa5eb6e505ffb3dc534d45023c"},
-    {file = "dbt_adapters-1.10.2.tar.gz", hash = "sha256:c85a782e1ffa1f8571331b5e5e4e466e4742d0e4e97708881151e7b5c5ade860"},
+    {file = "dbt_adapters-1.10.4-py3-none-any.whl", hash = "sha256:fb13ce0c0da5dba19aa7bbe0a6fe6f13c920d19ef4d9fbcf92a86c0e7a987e53"},
+    {file = "dbt_adapters-1.10.4.tar.gz", hash = "sha256:a33507fb0ef8b68c365ce2cbbb9f40910924d3268da017684559e867071b8a8a"},
 ]
 
 [package.dependencies]
 agate = ">=1.0,<2.0"
 dbt-common = ">=1.13,<2.0"
-mashumaro = {version = ">=3.0,<4.0", extras = ["msgpack"]}
+mashumaro = {version = ">=3.9,<3.15", extras = ["msgpack"]}
 protobuf = ">=5.0,<6.0"
 pytz = ">=2015.7"
 typing-extensions = ">=4.0,<5.0"
@@ -278,27 +278,25 @@ test = ["hypothesis (>=6.87,<7.0)", "pytest (>=7.3,<8.0)", "pytest-cov (>=4.1,<5
 
 [[package]]
 name = "dbt-core"
-version = "1.8.9"
+version = "1.9.0"
 description = "With dbt, data analysts and engineers can build analytics the way engineers build applications."
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "dbt_core-1.8.9-py3-none-any.whl", hash = "sha256:d376cf9c6eb13ed1e2a654e164bf84f4e66c57621d1681733835e49bb9cb1683"},
-    {file = "dbt_core-1.8.9.tar.gz", hash = "sha256:763a69b0fa4551ceff7a98b88b4f7af05eff0db959086373369b30b342bb5b26"},
+    {file = "dbt_core-1.9.0-py3-none-any.whl", hash = "sha256:a4273c242f44d3fdded7a3d412e43e60959f96a659e7e7487d6ec02c9f6729d5"},
+    {file = "dbt_core-1.9.0.tar.gz", hash = "sha256:2b4c19f190abff4280837ea8bab4e3e1e70b9a846bed397df970b628dd6c51cc"},
 ]
 
 [package.dependencies]
 agate = ">=1.7.0,<1.10"
 click = ">=8.0.2,<9.0"
 daff = ">=1.3.46"
-dbt-adapters = ">=1.1.1,<2.0"
-dbt-common = ">=1.0.4,<2.0"
+dbt-adapters = ">=1.10.1,<2.0"
+dbt-common = ">=1.13.0,<2.0"
 dbt-extractor = ">=0.5.0,<=0.6"
-dbt-semantic-interfaces = ">=0.5.1,<0.6"
+dbt-semantic-interfaces = ">=0.7.4,<0.8"
 Jinja2 = ">=3.1.3,<4"
-logbook = ">=1.5,<1.6"
-mashumaro = {version = ">=3.9,<4.0", extras = ["msgpack"]}
-minimal-snowplow-tracker = ">=0.0.2,<0.1"
+mashumaro = {version = ">=3.9,<3.15", extras = ["msgpack"]}
 networkx = ">=2.3,<4.0"
 packaging = ">20.9"
 pathspec = ">=0.9,<0.13"
@@ -306,6 +304,7 @@ protobuf = ">=5.0,<6.0"
 pytz = ">=2015.7"
 pyyaml = ">=6.0"
 requests = "<3.0.0"
+snowplow-tracker = ">=1.0.2,<2.0"
 sqlparse = ">=0.5.0,<0.6.0"
 typing-extensions = ">=4.4"
 
@@ -354,13 +353,13 @@ psycopg2-binary = ">=2.9,<3.0"
 
 [[package]]
 name = "dbt-semantic-interfaces"
-version = "0.5.1"
+version = "0.7.4"
 description = "The shared semantic layer definitions that dbt-core and MetricFlow use"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "dbt_semantic_interfaces-0.5.1-py3-none-any.whl", hash = "sha256:b95ff3a6721dc30f6278cb84933d95e0ef27766e67eeb6bb41906242e77f7c9b"},
-    {file = "dbt_semantic_interfaces-0.5.1.tar.gz", hash = "sha256:3a497abef1ba8112affdf804b26bfdcd5468ed95cc924b509068e18d371c7c4d"},
+    {file = "dbt_semantic_interfaces-0.7.4-py3-none-any.whl", hash = "sha256:63965478ef27056f20a8c9a0f59b1355ebbc15133c1a6f0d368d93996a31dd5d"},
+    {file = "dbt_semantic_interfaces-0.7.4.tar.gz", hash = "sha256:dcedda6702ecabb633aa4e8ab3b1eb7f9c4301dcc0026076a4a0ef64f9e59cf0"},
 ]
 
 [package.dependencies]
@@ -517,35 +516,6 @@ files = [
 test = ["cssselect (>=0.9.1)", "lxml (>=3.6.0)", "pytest", "pytest-cov"]
 
 [[package]]
-name = "logbook"
-version = "1.5.3"
-description = "A logging replacement for Python"
-optional = false
-python-versions = "*"
-files = [
-    {file = "Logbook-1.5.3-cp27-cp27m-win32.whl", hash = "sha256:56ee54c11df3377314cedcd6507638f015b4b88c0238c2e01b5eb44fd3a6ad1b"},
-    {file = "Logbook-1.5.3-cp27-cp27m-win_amd64.whl", hash = "sha256:2dc85f1510533fddb481e97677bb7bca913560862734c0b3b289bfed04f78c92"},
-    {file = "Logbook-1.5.3-cp35-cp35m-win32.whl", hash = "sha256:94e2e11ff3c2304b0d09a36c6208e5ae756eb948b210e5cbd63cd8d27f911542"},
-    {file = "Logbook-1.5.3-cp35-cp35m-win_amd64.whl", hash = "sha256:97fee1bd9605f76335b169430ed65e15e457a844b2121bd1d90a08cf7e30aba0"},
-    {file = "Logbook-1.5.3-cp36-cp36m-win32.whl", hash = "sha256:7c533eb728b3d220b1b5414ba4635292d149d79f74f6973b4aa744c850ca944a"},
-    {file = "Logbook-1.5.3-cp36-cp36m-win_amd64.whl", hash = "sha256:e18f7422214b1cf0240c56f884fd9c9b4ff9d0da2eabca9abccba56df7222f66"},
-    {file = "Logbook-1.5.3-cp37-cp37m-win32.whl", hash = "sha256:8f76a2e7b1f72595f753228732f81ce342caf03babc3fed6bbdcf366f2f20f18"},
-    {file = "Logbook-1.5.3-cp37-cp37m-win_amd64.whl", hash = "sha256:0cf2cdbfb65a03b5987d19109dacad13417809dcf697f66e1a7084fb21744ea9"},
-    {file = "Logbook-1.5.3.tar.gz", hash = "sha256:66f454ada0f56eae43066f604a222b09893f98c1adc18df169710761b8f32fe8"},
-]
-
-[package.extras]
-all = ["Jinja2", "brotli", "cython", "execnet (>=1.0.9)", "mock", "pytest", "pytest-cov (<2.6)", "pyzmq", "redis", "sqlalchemy"]
-compression = ["brotli"]
-dev = ["cython", "mock", "pytest", "pytest-cov (<2.6)"]
-execnet = ["execnet (>=1.0.9)"]
-jinja = ["Jinja2"]
-redis = ["redis"]
-sqlalchemy = ["sqlalchemy"]
-test = ["mock", "pytest", "pytest-cov (<2.6)"]
-zmq = ["pyzmq"]
-
-[[package]]
 name = "markupsafe"
 version = "3.0.2"
 description = "Safely add untrusted strings to HTML/XML markup."
@@ -617,13 +587,13 @@ files = [
 
 [[package]]
 name = "mashumaro"
-version = "3.15"
+version = "3.14"
 description = "Fast and well tested serialization library"
 optional = false
-python-versions = ">=3.9"
+python-versions = ">=3.8"
 files = [
-    {file = "mashumaro-3.15-py3-none-any.whl", hash = "sha256:cdd45ef5a4d09860846a3ee37a4c2f5f4bc70eb158caa55648c4c99451ca6c4c"},
-    {file = "mashumaro-3.15.tar.gz", hash = "sha256:32a2a38a1e942a07f2cbf9c3061cb2a247714ee53e36a5958548b66bd116d0a9"},
+    {file = "mashumaro-3.14-py3-none-any.whl", hash = "sha256:c12a649599a8f7b1a0b35d18f12e678423c3066189f7bc7bd8dd431c5c8132c3"},
+    {file = "mashumaro-3.14.tar.gz", hash = "sha256:5ef6f2b963892cbe9a4ceb3441dfbea37f8c3412523f25d42e9b3a7186555f1d"},
 ]
 
 [package.dependencies]
@@ -635,20 +605,6 @@ msgpack = ["msgpack (>=0.5.6)"]
 orjson = ["orjson"]
 toml = ["tomli (>=1.1.0)", "tomli-w (>=1.0)"]
 yaml = ["pyyaml (>=3.13)"]
-
-[[package]]
-name = "minimal-snowplow-tracker"
-version = "0.0.2"
-description = "A minimal snowplow event tracker for Python. Add analytics to your Python and Django apps, webapps and games"
-optional = false
-python-versions = "*"
-files = [
-    {file = "minimal-snowplow-tracker-0.0.2.tar.gz", hash = "sha256:acabf7572db0e7f5cbf6983d495eef54081f71be392330eb3aadb9ccb39daaa4"},
-]
-
-[package.dependencies]
-requests = ">=2.2.1,<3.0"
-six = ">=1.9.0,<2.0"
 
 [[package]]
 name = "more-itertools"
@@ -1367,6 +1323,22 @@ files = [
 ]
 
 [[package]]
+name = "snowplow-tracker"
+version = "1.0.4"
+description = "Snowplow event tracker for Python. Add analytics to your Python and Django apps, webapps and games"
+optional = false
+python-versions = "*"
+files = [
+    {file = "snowplow_tracker-1.0.4-py3-none-any.whl", hash = "sha256:382e289811550f6ce7d5abc9e68590cc080ac9b21916b701b17497cfd6b32038"},
+    {file = "snowplow_tracker-1.0.4.tar.gz", hash = "sha256:16d8a3c001a7847d91dc081d508324550c314a4cbf5d6106b5ab35f77fa34678"},
+]
+
+[package.dependencies]
+requests = ">=2.25.1,<3.0"
+types-requests = ">=2.25.1,<3.0"
+typing-extensions = ">=3.7.4"
+
+[[package]]
 name = "sqlparse"
 version = "0.5.3"
 description = "A non-validating SQL parser."
@@ -1391,6 +1363,20 @@ files = [
     {file = "text-unidecode-1.3.tar.gz", hash = "sha256:bad6603bb14d279193107714b288be206cac565dfa49aa5b105294dd5c4aab93"},
     {file = "text_unidecode-1.3-py2.py3-none-any.whl", hash = "sha256:1311f10e8b895935241623731c2ba64f4c455287888b18189350b67134a822e8"},
 ]
+
+[[package]]
+name = "types-requests"
+version = "2.32.0.20241016"
+description = "Typing stubs for requests"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "types-requests-2.32.0.20241016.tar.gz", hash = "sha256:0d9cad2f27515d0e3e3da7134a1b6f28fb97129d86b867f24d9c726452634d95"},
+    {file = "types_requests-2.32.0.20241016-py3-none-any.whl", hash = "sha256:4195d62d6d3e043a4eaaf08ff8a62184584d2e8684e9d2aa178c7915a7da3747"},
+]
+
+[package.dependencies]
+urllib3 = ">=2"
 
 [[package]]
 name = "typing-extensions"
@@ -1453,4 +1439,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "14bb9ab00123bf2fae6d51e411093e0b26175d8821257c5ee5ff4e94949c9c47"
+content-hash = "5656c390938470ef9db4d4c97997d477322cd5fca8cb14ff6d98a4633241c018"

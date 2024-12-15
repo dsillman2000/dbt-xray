@@ -11,7 +11,7 @@ ENV POETRY_NO_INTERACTION=1 \
 COPY . /project
 WORKDIR /project/integration_tests
 
-RUN poetry install && \
+RUN poetry install --with dev && \
     rm -rf $POETRY_CACHE_DIR
 
 RUN poetry run dbt deps
