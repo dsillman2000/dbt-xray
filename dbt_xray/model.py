@@ -6,7 +6,7 @@ import pydantic
 
 
 def json_adapter_response(adapter_response: Any) -> str:
-    def _dict_adapter_response(adapter_respone: Any) -> dict[str, Any]:
+    def _dict_adapter_response(adapter_response: Any) -> dict[str, Any]:
         adapter_response_data = {}
         for field in adapter_response.fields:
             key: str = field

@@ -24,9 +24,8 @@ def get_test_key(config: UnitTestConfig | TestConfig | Any) -> str | None:
         return key.split(":", maxsplit=1)[1]
 
 
-def get_test_plan(config: UnitTestConfig | TestConfig | Any) -> str | None:
-    if plan := next((tag for tag in config.tags if tag.startswith("plan:")), None):
-        return plan.split(":", maxsplit=1)[1]
+def get_test_plans(config: UnitTestConfig | TestConfig | Any) -> list[str]:
+    return [tag.split(":", maxsplit=1)[1] for tag in config.tags if tag.startswith("plan:")]
 
 
 def _candidate_nodes(manifest: Manifest) -> dict[str, UnitTestNode]:
@@ -47,7 +46,7 @@ def find_test_by_test_key(manifest: Manifest, test_key: str) -> UnitTestNode:
 def find_tests_by_test_plan(manifest: Manifest, test_plan: str) -> dict[str, UnitTestNode]:
     results = {}
     for node in _candidate_nodes(manifest).values():
-        if get_test_plan(node.config) == test_plan and isinstance(node, UnitTestNode):
+        if test_plan in get_test_plans(node.config) and isinstance(node, UnitTestNode):
             assert (test_key := get_test_key(node.config)), f"Test {node.unique_id} does not have a key tag!"
             results[test_key] = node
     return results
