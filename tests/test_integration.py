@@ -30,27 +30,22 @@ def test_dbt_xray_ls(args: list[str], expected_substrings: list[str]):
     [
         pytest.param(
             ["run"],
-            [
-                ".unit_test__empty): pass",
-                ".unit_test__one_row): pass",
-                ".empty): pass",
-                ".one_row): pass",
-            ],
+            ["IGDP-13: pass", "IGDP-14: pass", "IGDP-15: pass", "IGDP-16: pass"],
             id="run",
         ),
         pytest.param(
             ["run", "--test-key", "IGDP-14"],
-            [".one_row): pass"],
+            ["IGDP-14: pass"],
             id="run --test-key IGDP-14",
         ),
         pytest.param(
             ["run", "--test-key", "IGDP-14,IGDP-13"],
-            [".one_row): pass", ".empty): pass"],
+            ["IGDP-14: pass", "IGDP-13: pass"],
             id="run --test-key IGDP-14,IGDP-13",
         ),
         pytest.param(
             ["run", "--test-plan", "IGDP-28"],
-            [".unit_test__empty): pass", ".empty): pass"],
+            ["IGDP-13: pass", "IGDP-15: pass"],
             id="run --test-plan IGDP-28",
         ),
     ],

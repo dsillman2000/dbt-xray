@@ -22,3 +22,11 @@ quiet = click.option(
     is_flag=True,
     help="Suppress output",
 )
+
+mode = click.option(
+    "--mode",
+    "-m",
+    type=click.Choice(["bulk", "serial"]),
+    default="bulk",
+    help="Run tests in bulk or serial mode",
+)
