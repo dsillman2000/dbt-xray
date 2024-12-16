@@ -40,3 +40,30 @@ unit_tests:
           event_id: "abc123de"
           received_at: "2020-01-01 00:00:00"
           dbt_run_started_at: *run_started_at
+
+  - name: fallible
+    model: stg_user_events
+    config:
+      tags: ["key:IGDP-70"]
+    given:
+      - input: source("landing_tables", "user_events")
+        rows:
+          - region_id: "us-east-1"
+            user_id: "user-1f"
+            client_version: "1.0.1"
+            event_type: "login"
+            event_data: '{ "success": true }'
+            event_timestamp: "2020-01-01 00:00:00"
+            event_id: "abc123de"
+            received_at: "2020-01-01 00:00:00"
+    expect:
+      rows:
+        - region_id: "different-region"
+          user_id: "different-user"
+          client_version: "different-client-version"
+          event_type: "different-event-type"
+          event_data: "{}"
+          event_timestamp: "2020-01-01 00:00:00"
+          event_id: "fgh456ij"
+          received_at: "2020-01-01 00:00:00"
+          dbt_run_started_at: "2020-01-01 00:00:00"

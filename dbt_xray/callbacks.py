@@ -22,7 +22,7 @@ class XrayTestResultsCollection:
             if event.info.name == "NodeFinished":
                 unique_id = event.data.node_info.unique_id  # type: ignore
                 test_key = self._lookup.get(unique_id, "")
-                self._test_results[test_key] = XrayRunResult.from_node_finished_data(event.data, test_key)  # type: ignore
+                self._test_results[test_key] = XrayRunResult.from_node_finished_event(event, test_key)  # type: ignore
 
         def _upload_results(event: EventMsg):
             if event.info.name == "CommandCompleted":
