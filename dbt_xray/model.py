@@ -31,7 +31,7 @@ def run_result_json(node_finished_event: NodeFinished) -> str:
 class XrayRunResult(pydantic.BaseModel):
     test_key: str
     status: Literal["pass", "fail"] | None = None
-    started_timestamp: datetime.datetime
+    started_timestamp: datetime.datetime | None = None
     finished_timestamp: datetime.datetime | None = None
     execution_evidence: str | None = None
 

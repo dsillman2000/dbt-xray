@@ -58,9 +58,8 @@ def run(ctx: click.Context, test_plan: str | None, test_key: str | None, mode: L
     collection = callbacks.XrayTestResultsCollection(_lookup=lookup)
     runner = dbtRunner(callbacks=collection.callbacks())
     if not selected:
-        print("Nothing to do!")
+        utils.dbt_log_note("Nothing to do!")
         return
     utils.run_tests_by_test_keys(runner, list(selected.keys()), mode=mode)
     results: list[XrayRunResult] = [collection._test_results[k] for k in selected.keys()]
-    pprint(results, indent=2)
     return results

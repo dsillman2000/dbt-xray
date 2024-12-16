@@ -1,18 +1,32 @@
 from typing import Any, Literal
 
 from dbt.artifacts.resources.v1.config import TestConfig
-from dbt.artifacts.resources.v1.unit_test_definition import (
-    UnitTestConfig,
-    UnitTestDefinition,
-)
+
+try:
+    from dbt.artifacts.resources.v1.unit_test_definition import (
+        UnitTestConfig,
+        UnitTestDefinition,
+    )
+except ModuleNotFoundError:
+    from dbt.artifacts.resources.v1.config import TestConfig as UnitTestConfig
+    from dbt.artifacts.resources.v1.singular_test import (
+        SingularTest as UnitTestDefinition,
+    )
+
 from dbt.cli.main import dbtRunner
 from dbt.contracts.graph.manifest import Manifest
-from dbt.contracts.graph.nodes import ManifestNode, SingularTestNode, TestNode
-from dbt.contracts.graph.nodes import UnitTestNode as dbtUnitTestNode
+from dbt.contracts.graph.nodes import TestNode
 
 from dbt_xray.model import XrayRunResult
 
-UnitTestNode = UnitTestDefinition | SingularTestNode
+try:
+    from dbt_common.events.functions import fire_event
+    from dbt_common.events.types import Note
+except ModuleNotFoundError:
+    from dbt.events.functions import fire_event  # type: ignore
+    from dbt.events.types import Note  # type: ignore
+
+UnitTestNode = UnitTestDefinition | TestNode
 
 
 def validate_jira_config(config: UnitTestConfig | TestConfig | Any) -> bool:
@@ -69,3 +83,7 @@ def run_tests_by_test_keys(runner: dbtRunner, test_keys: list[str], mode: Litera
         case "bulk":
             selects = " ".join([f"tag:key:{key}" for key in test_keys])
             runner.invoke(["test", "-s", selects])
+
+
+def dbt_log_note(message: str):
+    fire_event(Note(msg=message))
