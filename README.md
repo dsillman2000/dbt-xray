@@ -89,8 +89,10 @@ By default, `--mode bulk` is supplied, which runs tests in parallel with the thr
 
 ## To-do
 
-- [ ] Implement missing API calls for Jira X-Ray
+- [ ] Implement missing API calls for Jira X-Ra
 - [ ] Better tests
+- [ ] `dbt-xray check` command to alert whether or not dbt test contents disagree with corresponding Jira tickets (check hash, maybe description and test details).
+- [ ] `dbt-xray sync` command to update Jira tickets with their corresponding dbt test contents (update hash, maybe description and test details).
 - [ ] Better dbt version compatibility for <1.8.0
 
 ## Acknowledgements
