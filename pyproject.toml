@@ -5,7 +5,7 @@ description = "A dbt companion CLI for reporting unit test executions to Jira X-
 authors = ["David Sillman <dsillman2000@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">=3.9,<3.13"
 dbt-core = "^1.8"
 click = "^8.1.7"
 pydantic = "^2.10.3"
